@@ -11,7 +11,7 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
   try {
-    const response = await openai.createChatCompletion({
+    const response = await openai.chat.completions.create({
       model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
       prompt: event.body,
       presence_penalty: 0,
