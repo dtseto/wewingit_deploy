@@ -12,7 +12,7 @@ const openai = new OpenAIApi(configuration)
 const handler = async (event) => {
   try {
     const response = await openai.createCompletion({
-      model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
+      model: 'text-davinci-003',
       prompt: event.body,
       presence_penalty: 0,
       frequency_penalty: 0.3,
@@ -21,8 +21,6 @@ const handler = async (event) => {
       stop: ['\n', '->']
     })
 
-    //const subject = event.queryStringParameters.name || 'World'
-
     return {
       statusCode: 200,
       body: JSON.stringify( 
@@ -30,9 +28,6 @@ const handler = async (event) => {
           reply: response.data
         }
 
-        // // more keys you can return:
-        // headers: { "headerName": "headerValue", ... },
-        // isBase64Encoded: true,
       ),
     }
   } catch (error) {
