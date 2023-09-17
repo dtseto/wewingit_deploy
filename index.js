@@ -45,12 +45,11 @@ async function fetchReply(){
         },
         body: conversationStr
     });
-    const data=await response.json()
-    console.log(data)
+    const data = await response.json()
 
-    //conversationStr += ` ${response.data.choices[0].text} \n`
-    //renderTypewriterText(response.data.choices[0].text)
-    //console.log(conversationStr)
+    conversationStr+=` ${data.reply.choices[0].text} ->`
+    renderTypewriterText(data.reply.choices[0].text)
+    console.log(data)
 }
 
 function renderTypewriterText(text) {
